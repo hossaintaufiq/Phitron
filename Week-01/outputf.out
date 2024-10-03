@@ -2,3 +2,8 @@ STL Vectors:
 
 1 2 3 4 5 
 size of the vector : 5
+10 10 10 10 10 
+after copying the elements of vector 1: 
+1 2 3 4 5 
+after initializing as like an array  the elements of vector : 
+2 4 5 6 7 
