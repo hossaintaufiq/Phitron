@@ -65,19 +65,21 @@ int main(){
 	Node*head=NULL;
 
 	while(true){
-		cout<<"Option 1: Insert a new node at the tail: "<<endl;
-        cout<<"Option 2: Insert a new node at any position : "<<endl;
-		cout<<"Option 3: print the LinkedList : "<<endl;
+
+        cout<<"<<<-----Welcome to linked List ------>>>>>"<<endl;
+        cout<<"Option 1: print the LinkedList : "<<endl;
+		cout<<"Option 2: Insert a new node at the tail: "<<endl;
+        cout<<"Option 3: Insert a new node at any position : "<<endl;
 		cout<<"Option 4: Terminate the program  "<<endl;
 
 		int option ; 
 		cin>>option ; 
-		if(option==1){
+		if(option==2){
 			cout<<"Enter your value: "<<endl; 
 			int value; cin>>value; 
 			insetAtTail(head,value);
 		}
-        else if(option==2){
+        else if(option==3){
             int pos,v; 
             cout<<"Enter your possition : "<<endl; 
             cin>>pos ;
@@ -85,7 +87,7 @@ int main(){
             cin>>v;
 			insertAtAnyPostion(head,pos,v);
 		}
-		else if(option==3){
+		else if(option==1){
 			printLinkedList(head);
 		}
 		else if(option==4){
