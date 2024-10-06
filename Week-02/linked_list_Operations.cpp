@@ -12,18 +12,42 @@ public:
 	}
 };
 
+void insert_at_tail(Node*&head,int v){
+	Node*newNode= new Node(v);
+
+	if(head ==nullptr){
+		head=newNode;
+		break;
+	}
+	
+	Node *temp =head;
+
+	while(temp->next!nullptr){
+		temp=temp->next;
+	}
+
+	temp->next=newNode;
+
+}
+
+void printLinkedList(Node*head){
+	Node*temp=head; 
+	while(temp !=nullptr){
+		cout<<temp->val<<" ";
+		temp=temp->next;
+	}
+}
 
 int main(){
-	Node*head= new Node(10);
-	Node*a=new Node(20);
+	Node*head=nullptr;
 
-	head->next=a;
+	cout<<"Option 1: Insert at tail "<<endl;
+	int op;
 
-	Node*temp=head;
-
-	while(temp!=nullptr){
-		cout<<temp->val<<endl;
-		temp=temp->next;
-
+	cin>>op ; 
+	if(op==1){
+		int v; 
+		cin>>v;
+		insert_at_tail(head,v);
 	}
 }
