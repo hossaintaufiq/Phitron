@@ -13,12 +13,27 @@ public:
 	}
 }; 
 
+void insertAtAnyPostion(Node*&head,int pos, int val){
+    Node*newNode= new Node(val);
+    Node*temp=head;
+   for (int i = 1; i <=pos-1; i++){
+    temp=temp->next;
+   }
+
+   newNode->next=temp->next; 
+   temp->next=newNode;
+   
+    cout<<endl<<endl<<"Inserted at postion "<< pos <<endl<<endl;
+
+}
+
 void insetAtTail(Node* &head , int value){
 
 	Node*newNode = new Node(value);
 
 	if(head==nullptr){
 		head=newNode;
+         cout<<"inserted At Head "<<endl<<endl;; 
 		return; 
 	}
 
@@ -28,10 +43,14 @@ void insetAtTail(Node* &head , int value){
 	}
 
 	temp->next=newNode;
+
+    cout<<"inserted At Tail"<<endl<<endl;; 
 	
 }
 
 void printLinkedList(Node*head){
+
+    cout<<endl;
 	Node*temp=head; 
 
 	while(temp!=nullptr){
@@ -47,8 +66,9 @@ int main(){
 
 	while(true){
 		cout<<"Option 1: Insert a new node at the tail: "<<endl;
-		cout<<"Option 2: print the LinkedList : "<<endl;
-		cout<<"Option 3: Terminate the program  "<<endl;
+        cout<<"Option 2: Insert a new node at any position : "<<endl;
+		cout<<"Option 3: print the LinkedList : "<<endl;
+		cout<<"Option 4: Terminate the program  "<<endl;
 
 		int option ; 
 		cin>>option ; 
@@ -57,10 +77,18 @@ int main(){
 			int value; cin>>value; 
 			insetAtTail(head,value);
 		}
-		if(option==2){
+        else if(option==2){
+            int pos,v; 
+            cout<<"Enter your possition : "<<endl; 
+            cin>>pos ;
+            cout<<"Enter your value: " <<endl; 
+            cin>>v;
+			insertAtAnyPostion(head,pos,v);
+		}
+		else if(option==3){
 			printLinkedList(head);
 		}
-		if(option==3){
+		else if(option==4){
 			return 0; 
 		}
 
