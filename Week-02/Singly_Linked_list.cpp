@@ -2,12 +2,34 @@
 using namespace std; 
 
 
+class Node{
+public:
+	int val;
+	Node*next;
+
+	// Node(int value){
+	// 	data=value;
+	// 	Node=nullptr;
+	// }
+};
+
+
 
 int main(){
-	long long n; 
-	cin>>n;
+	Node a,b;
 
-	long long int  sum=(n*(n+1))/2;
+	a.val=10;
+	b.val=20;
 
-	cout<<sum;
-}
+	a.next=&b;
+	b.next=nullptr;
+
+
+
+	cout<<a.val<<endl;
+	cout<<a.next->val;//derefaranced value of the object b using object a 
+
+
+
+
+	}
