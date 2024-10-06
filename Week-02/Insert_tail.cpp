@@ -1,6 +1,4 @@
 #include<bits/stdc++.h> 
-
-#include<iostream> 
 using namespace std ; 
 
 class Node {
@@ -15,26 +13,61 @@ public:
 	}
 }; 
 
-int main(){
-	Node*head= new Node(10);
-	Node* a= new Node (20);
+void insetAtTail(Node* &head , int value){
 
-	head->next= a; 
+	Node*newNode = new Node(value);
 
-	Node *temp= head ;
+	if(head==nullptr){
+		head=newNode;
+		return; 
+	}
 
-	
-
-
-	while(temp!=nullptr){
-		cout<<temp->val<<endl; 
+	Node*temp=head;
+	while(temp->next!=nullptr){
 		temp=temp->next;
 	}
 
-	// while(head!=nullptr){
-	// 	cout<<head->val<<endl;
-	// 	head=head->next; 
-	// }
+	temp->next=newNode;
+	
+}
 
-	cout<<head->val;
+void printLinkedList(Node*head){
+	Node*temp=head; 
+
+	while(temp!=nullptr){
+		cout<<temp->val<<" ";
+		temp=temp->next;
+	}
+	cout<<endl;
+}
+
+int main(){
+
+	Node*head=NULL;
+
+	while(true){
+		cout<<"Option 1: Insert a new node at the tail: "<<endl;
+		cout<<"Option 2: print the LinkedList : "<<endl;
+		cout<<"Option 3: Terminate the program  "<<endl;
+
+		int option ; 
+		cin>>option ; 
+		if(option==1){
+			cout<<"Enter your value: "<<endl; 
+			int value; cin>>value; 
+			insetAtTail(head,value);
+		}
+		if(option==2){
+			printLinkedList(head);
+		}
+		if(option==3){
+			return 0; 
+		}
+
+	}
+	
+
+
+
+	
 }

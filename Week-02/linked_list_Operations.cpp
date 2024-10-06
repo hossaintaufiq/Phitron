@@ -17,12 +17,12 @@ void insert_at_tail(Node*&head,int v){
 
 	if(head ==nullptr){
 		head=newNode;
-		break;
+		return;
 	}
 	
 	Node *temp =head;
 
-	while(temp->next!nullptr){
+	while(temp->next!=nullptr){
 		temp=temp->next;
 	}
 
@@ -32,16 +32,23 @@ void insert_at_tail(Node*&head,int v){
 
 void printLinkedList(Node*head){
 	Node*temp=head; 
+
+	cout<<"Your linkedList: "; 
 	while(temp !=nullptr){
 		cout<<temp->val<<" ";
 		temp=temp->next;
 	}
+	cout<<endl;
 }
 
 int main(){
 	Node*head=nullptr;
 
-	cout<<"Option 1: Insert at tail "<<endl;
+	while(true){
+		cout<<"Option 1: Insert at tail : "<<endl;
+		cout<<"Option 2: Print the linked list :  "<<endl;
+		cout<<"Option 3: Terminate the Program :  "<<endl;
+		cout<<"Option 1: Insert at tail "<<endl;
 	int op;
 
 	cin>>op ; 
@@ -50,4 +57,17 @@ int main(){
 		cin>>v;
 		insert_at_tail(head,v);
 	}
+	if(op==2){
+		printLinkedList(head);
+	}
+	if(op==3){
+		return 0 ; 
+	}
+
+	
+	}
+
+	
+
+
 }
