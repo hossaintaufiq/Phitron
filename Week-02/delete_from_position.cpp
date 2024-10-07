@@ -12,6 +12,25 @@ public:
     }
 };
 
+void deleteFromPosition(Node* head,int pos){
+    Node*temp=head;
+    int address;
+    for(int i=1;i<=pos-1;i++){
+        temp=temp->next;
+    }
+
+    Node*deleteNode = temp->next;
+
+    temp->next=deleteNode->next;
+    // or this comand can be used 
+    // temp->next= temp->next->next;
+
+    delete deleteNode;
+
+    cout<<"Node deleted ;"<<endl<<endl;
+
+}
+
 void insertAtHead(Node* &head,int val){
     Node*newNode = new Node(val);
     newNode->next = head;
@@ -76,7 +95,7 @@ int main(){
        cout<<"Option 2: Insert at the tail"<<endl; 
        cout<<"Option 3: Insert at any position "<<endl; 
        cout<<"Option 4: Insert at head ;"<<endl; 
-       cout<<"Option 5: "<<endl; 
+       cout<<"Option 5: Delete from position "<<endl; 
        cout<<"Option 6: Print the linked list ;"<<endl; 
        cout<<"Option 7: Print the linked list ;"<<endl; 
        cout<<"Option 8: Print the linked list ;"<<endl;
@@ -115,7 +134,10 @@ int main(){
         insertAtHead(head,val);
        }
        else if(op==5){
-        
+        int pos;
+        cout<<"Enter your postion: "<<endl;
+        cin>>pos;
+        deleteFromPosition(head,pos);
        }
        else if(op==6){
         
