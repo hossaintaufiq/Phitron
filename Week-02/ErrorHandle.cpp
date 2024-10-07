@@ -13,6 +13,10 @@ public:
 };
 
 void deleteHead(Node*&head){
+    if(head==nullptr){
+        cout<<"head is not available"<<endl;
+        return;
+    }
     Node*deleteHead= head;
      head= head->next;
      delete deleteHead;
@@ -25,6 +29,15 @@ void deleteFromPosition(Node* head,int pos){
     int address;
     for(int i=1;i<=pos-1;i++){
         temp=temp->next;
+        if(temp==nullptr){
+            cout<<endl<<"Invalid position"<<endl;
+            return;
+        }
+    }
+
+    if(temp->next==nullptr){
+        cout<<endl<<"Invalid position"<<endl;
+            return;
     }
 
     Node*deleteNode = temp->next;
@@ -56,6 +69,10 @@ void insertAtAnyPosition(Node*&head, int pos,int val){
 
     for(int i=1;i<=pos-1;i++){
         temp=temp->next;
+        if(temp==nullptr){
+            cout<<endl<<"invalid index"<<endl;
+            return;
+        }
     }
     newNode->next=temp->next;
     temp->next=newNode;
