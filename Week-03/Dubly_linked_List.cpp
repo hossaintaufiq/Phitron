@@ -14,7 +14,41 @@ public:
     }
 };
 
+void print_normal(Node*head){
+    Node*temp=head;
+    while(temp!=nullptr){
+        cout<<temp->val<<" " ;
+        temp=temp->next;
+    }
+    cout<<endl;
+}
+void print_tail(Node*tail){
+    Node*temp=tail;
+
+    while(temp!=nullptr){
+        cout<<temp->val<<" ";
+        temp=temp->pre;
+    }
+    cout<<endl;
+}
+
 int main(){
+    Node*head=new Node(10);
+    Node*a=new Node(20);
+    Node*b=new Node(30);
+
+
+    head->next=a; 
+    a->pre=head; 
+    a-> next=b; 
+    b->pre=a;
+    Node*tail=b;
+
+
+    print_normal(head);
+    print_tail(tail);
+
+
     
 
 
