@@ -36,13 +36,17 @@ int main(){
     Node*head=new Node(10);
     Node*a=new Node(20);
     Node*b=new Node(30);
+    Node*c=new Node(40);
+     Node*tail=c;
 
 
     head->next=a; 
     a->pre=head; 
     a-> next=b; 
     b->pre=a;
-    Node*tail=b;
+    b->next=c;
+    c->pre=b;
+   
 
 
     print_normal(head);
