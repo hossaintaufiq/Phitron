@@ -80,6 +80,36 @@ void insert_at_tail(Node*&head,Node*&tail,int val){
     
 
 }
+
+void delete_at_position(Node*head, int pos){
+    Node*temp=head; 
+
+    for(int i=1;i<=pos-1;i++){
+        temp=temp->next;
+    }
+    Node*deleteNode= temp->next; 
+    temp->next=temp->next->next;
+    temp->next->pre=temp;
+
+    delete deleteNode;
+
+
+}
+
+void delete_tail(Node*&tail){
+    Node*deleteNode=tail;
+    tail=tail->pre;
+    delete deleteNode;
+    tail->next=nullptr;
+     
+}
+
+void delete_head(Node*&head){
+    Node*deleteNode=head;
+    head=head->next;
+    delete deleteNode;
+    head->pre=nullptr;
+}
 int size(Node*head){
     Node*temp=head;
     int count=0;
@@ -92,55 +122,77 @@ int size(Node*head){
 
 
 int main(){
-    Node*head=nullptr;
-    Node*tail=nullptr;
+    // Node*head=nullptr;
+    // Node*tail=nullptr;
 
 
 
-    // Node*head=new Node(10);
-    // Node*a=new Node(20);
-    // Node*b=new Node(30);
-    // Node*c=new Node(40);
-    // Node*tail=c;
+    Node*head=new Node(10);
+    Node*a=new Node(20);
+    Node*b=new Node(30);
+    Node*c=new Node(40);
+    Node*tail=c;
 
 
-    // head->next=a; 
-    // a->pre=head; 
-    // a-> next=b; 
-    // b->pre=a;
-    // b->next=c;
-    // c->pre=b;
+    head->next=a; 
+    a->pre=head; 
+    a-> next=b; 
+    b->pre=a;
+    b->next=c;
+    c->pre=b;
 
 
    
 
 
-    // printLinkedList(head);
-    // cout<<endl;
-    // reversePrint(tail);
-    // cout<<endl;
+    cout<<endl;
+    printLinkedList(head);
+    cout<<endl;
+    reversePrint(tail);
+    cout<<endl;
 
+
+
+    // int pos,val;
+    // cout<<"Enter the value; "<<endl;
+    // cin>>val;
+
+    // cout<<"Enter the position: "<<endl;
+    // cin>>pos; 
+    // if(pos==0){
+    //     insert_at_head(head,tail,val);
+    // }
+    // else if(pos==size(head)){
+    //     insert_at_tail(head,tail,val);
+    // }
+    // else if(pos>=size(head)){
+    //     cout<<"Invalid "<<endl;
+    // }
+    // else {
+    //     insert_at_any_position(head, pos, val );
+
+    // }
+    // if(pos>size(head)){
+    //     cout<<"Invalid "<<endl;
+    // }
+    // else if(pos==0){
+    //     insert_at_head(head,tail,val);
+    // }
+    // else if(pos==size(head)){
+    //     insert_at_tail(head,tail,val);
+    // }
+    // else if(pos>=size(head)){
+    //     cout<<"Invalid "<<endl;
+    // }
+    // else {
+    //     insert_at_any_position(head, pos, val );
+
+    // }
+
+    // delete_at_position(head,pos);
+    // delete_tail(tail);
+    delete_head(head);
     
-
-    int pos,val;
-    cout<<"Enter the value; "<<endl;
-    cin>>val;
-
-    cout<<"Enter the position: "<<endl;
-    cin>>pos; 
-    if(pos==0){
-        insert_at_head(head,tail,val);
-    }
-    else if(pos==size(head)){
-        insert_at_tail(head,tail,val);
-    }
-    else if(pos>=size(head)){
-        cout<<"Invalid "<<endl;
-    }
-    else {
-        insert_at_any_position(head, pos, val );
-
-    }
 
     
     cout<<endl;
