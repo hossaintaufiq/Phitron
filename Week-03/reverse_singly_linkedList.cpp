@@ -12,12 +12,12 @@ public:
     }
 };
 
-// void printReverse(Node*n ){
-//     if(n==nullptr) return;
+void printReverse(Node*n ){
+    if(n==nullptr) return;
 
-//     printReverse(n->next);
-//     cout<<n->val<<" ";
-//     }
+    printReverse(n->next);
+    cout<<n->val<<" ";
+    }
 
 void reverse(Node* & head, Node*current_node){
     if(current_node->next==nullptr){
